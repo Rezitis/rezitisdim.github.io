@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.gift-box {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    cursor: pointer;
+}
+
+.gift-box .text {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hidden {
+    display: none;
+}
+
+#code-prompt {
+    margin-top: 20px;
+}
+
+#code-input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.message {
+    display: none;
+    margin-top: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+}
