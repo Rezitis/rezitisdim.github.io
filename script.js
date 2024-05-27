@@ -1,6 +1,8 @@
+
 let firstClickDone = false;
 const correctCode = "σουσου";
 
+// Function to handle the first click on the gift box
 function firstClick() {
     if (!firstClickDone) {
         document.getElementById('gift-box').querySelector('.text').innerText = "πρεπει να βεις τον κωδικο";
@@ -9,15 +11,18 @@ function firstClick() {
     }
 }
 
+// Function to check the entered code
 function checkCode() {
     const userInput = document.getElementById('code-input').value;
     if (userInput === correctCode) {
         openGift();
+        displayMessage();
     } else {
         alert("Incorrect code. Try again!");
     }
 }
 
+// Function to open the gift box
 function openGift() {
     const giftBox = document.getElementById('gift-box');
     giftBox.style.transition = 'transform 1s';
@@ -25,30 +30,13 @@ function openGift() {
     
     setTimeout(() => {
         giftBox.style.display = 'none';
-        document.getElementById('message').classList.remove('hidden');
     }, 1000);
 }
 
-// 3D effect with Three.js
-const container = document.getElementById('gift-box');
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-
-renderer.setSize(container.clientWidth, container.clientHeight);
-container.appendChild(renderer.domElement);
-
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0xff6347 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-
-camera.position.z = 2;
-
-function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
+// Function to display the message after opening the gift
+function displayMessage() {
+    document.getElementById('message').classList.remove('hidden');
 }
-animate();
+
+// Event listener for the initial click on the gift box
+document.getElementById('gift-box').addEventListener('click', firstClick);
